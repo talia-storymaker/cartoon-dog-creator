@@ -2,102 +2,118 @@
    <head>
       <title>Cartoon Dog Creator</title>
       <link rel="stylesheet" href="css/style.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet"> 
       <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
    </head>
    <body>
-      <div class="container" id="app">
-         <svg
-            xmlns:dc="http://purl.org/dc/elements/1.1/"
-            xmlns:cc="http://creativecommons.org/ns#"
-            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:svg="http://www.w3.org/2000/svg"
-            xmlns="http://www.w3.org/2000/svg"
-            width="429"
-            height="453"
-            viewBox="0 0 143 160"
-            version="1.1"
-            id="doghead" class="doghead">
-            <defs />
-            <metadata>
-               <rdf:RDF>
-                  <cc:Work
-                     rdf:about="">
-                  <dc:format>image/svg+xml</dc:format>
-                  <dc:type
-                     rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                  <dc:title></dc:title>
-                  </cc:Work>
-               </rdf:RDF>
-            </metadata>
-            <g
-               transform="translate(-31.372025,-87.690472)">
-               <ellipse
-                  :style="headStyle"
-                  id="head" class="head"
-                  cx="126"
-                  cy="132"
-                  rx="42"
-                  ry="44" />
-               <ellipse
-                  :style="muzzleStyle"
-                  id="muzzle" class="muzzle"
-                  cx="78"
-                  cy="144"
-                  rx="38"
-                  ry="20" />
-               <ellipse
-                  :style="earStyle"
-                  id="ear" class="ear"
-                  cx="150"
-                  :cy="earPosition"
-                  rx="24"
-                  :ry="earLength" />
-               <ellipse
-                  :style="noseStyle"
-                  id="nose" class="nose"
-                  cx="46"
-                  cy="137"
-                  :rx="noseLength"
-                  :ry="noseHeight" />
-               <ellipse
-                  :style="eyewhiteStyle"
-                  id="eyewhite" class="eyewhite"
-                  cx="108"
-                  cy="122"
-                  rx="12"
-                  ry="19" />
-               <ellipse
-                  :style="pupilStyle"
-                  id="pupil" class="pupil"
-                  cx="113"
-                  cy="129"
-                  rx="6"
-                  ry="8" />
-            </g>
-         </svg>
-         <div class="controls">
-            <label for="head-color-chooser">Head: </label>     <input type="color" id="head-color-chooser" value="#c87137" v-model="headStyle.fill">
-            <br/>
-            <label for="muzzle-color-chooser">Muzzle: </label>
-            <input type="color" id="muzzle-color-chooser" value="#c87137" v-model="muzzleStyle.fill">
-            <br />
-            <label for="ear-color-chooser">Ear: </label>
-            <input type="color" id="ear-color-chooser" value="#000" v-model="earStyle.fill">
-            <br />
-            <label for="nose-color-chooser">Nose: </label>
-            <input type="color" id="nose-color-chooser" value="#000000" v-model="noseStyle.fill">
-            <br />
-            <label for="eyewhite-color-chooser">Eyewhite: </label>
-            <input type="color" id="eyewhite-color-chooser" value="#ffffff" v-model="eyewhiteStyle.fill">
-            <br />
-            <label for="pupil-color-chooser">Pupil: </label>
-            <input type="color" id="pupil-color-chooser" value="#000000" v-model="pupilStyle.fill">
-            <br />
-            <label for="ear-length-chooser">Ear Length: </label>
-            <input type="number" id="ear-length-chooser" value="1" step="1" min="1" max="35" v-model="earLengthModifier">
-            <br />
-            <label for="nose-size-chooser">Nose Size: </label>
-            <input type="number" id="nose-length-chooser" value="1" step="1" min="1" max="8" v-model="noseSizeModifier">
+      <div id="app" class="app">
+         <h1>🐶 Cartoon Dog Creator 🎨</h1>
+         <div class="container">
+            <svg
+               xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xmlns:cc="http://creativecommons.org/ns#"
+               xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               xmlns:svg="http://www.w3.org/2000/svg"
+               xmlns="http://www.w3.org/2000/svg"
+               width="429"
+               height="453"
+               viewBox="0 0 143 160"
+               version="1.1"
+               id="doghead" class="doghead">
+               <defs />
+               <metadata>
+                  <rdf:RDF>
+                     <cc:Work
+                        rdf:about="">
+                     <dc:format>image/svg+xml</dc:format>
+                     <dc:type
+                        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                     <dc:title></dc:title>
+                     </cc:Work>
+                  </rdf:RDF>
+               </metadata>
+               <g
+                  transform="translate(-31.372025,-87.690472)">
+                  <!-- HEAD -->
+                  <ellipse
+                     :style="headStyle"
+                     id="head" class="head"
+                     cx="126"
+                     cy="132"
+                     rx="42"
+                     ry="44" />
+                  <!-- MUZZLE -->
+                  <ellipse
+                     :style="muzzleStyle"
+                     id="muzzle" class="muzzle"
+                     cx="78"
+                     cy="144"
+                     rx="38"
+                     ry="20" />
+                  <!-- EAR -->
+                  <ellipse
+                     :style="earStyle"
+                     id="ear" class="ear"
+                     :cx="earXPosition"
+                     :cy="earYPosition"
+                     :rx="earWidth"
+                     :ry="earLength" />
+                  <!-- NOSE -->
+                  <ellipse
+                     :style="noseStyle"
+                     id="nose" class="nose"
+                     cx="46"
+                     cy="137"
+                     :rx="noseLength"
+                     :ry="noseHeight" />
+                  <!-- EYEWHITE -->
+                  <ellipse
+                     :style="eyewhiteStyle"
+                     id="eyewhite" class="eyewhite"
+                     cx="108"
+                     cy="122"
+                     rx="12"
+                     ry="19" />
+                  <!-- PUPIL -->
+                  <ellipse
+                     :style="pupilStyle"
+                     id="pupil" class="pupil"
+                     cx="113"
+                     cy="129"
+                     rx="6"
+                     ry="8" />
+               </g>
+            </svg>
+            <div class="controls">
+               <label for="head-color-chooser">Head: </label>
+               <input type="color" id="head-color-chooser" value="#c87137" v-model="headStyle.fill">
+               <br/>
+               <label for="muzzle-color-chooser">Muzzle: </label>
+               <input type="color" id="muzzle-color-chooser" value="#c87137" v-model="muzzleStyle.fill">
+               <br />
+               <label for="ear-color-chooser">Ear: </label>
+               <input type="color" id="ear-color-chooser" value="#000" v-model="earStyle.fill">
+               <br />
+               <label for="nose-color-chooser">Nose: </label>
+               <input type="color" id="nose-color-chooser" value="#000000" v-model="noseStyle.fill">
+               <br />
+               <label for="eyewhite-color-chooser">Eyewhite: </label>
+               <input type="color" id="eyewhite-color-chooser" value="#ffffff" v-model="eyewhiteStyle.fill">
+               <br />
+               <label for="pupil-color-chooser">Pupil: </label>
+               <input type="color" id="pupil-color-chooser" value="#000000" v-model="pupilStyle.fill">
+               <br />
+               <label for="ear-length-chooser">Ear Length: </label>
+               <input type="number" id="ear-length-chooser" value="1" step="1" min="1" max="35" v-model="earLengthModifier">
+               <br />
+               <label for="ear-width-chooser">Ear Width: </label>
+               <input type="number" id="ear-width-chooser" value="1" step="1" min="1" max="13" v-model="earWidthModifier">
+               <br />
+               <label for="nose-size-chooser">Nose Size: </label>
+               <input type="number" id="nose-length-chooser" value="1" step="1" min="1" max="8" v-model="noseSizeModifier">
+            </div>
          </div>
       </div>
       <script src="js/script.js"></script>

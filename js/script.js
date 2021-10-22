@@ -4,6 +4,7 @@ const App = {
   data() {
     return {
       earLengthModifier: 13,
+      earWidthModifier: 10,
       noseSizeModifier: 3,
       headStyle: {
         fill: '#c87137',
@@ -29,7 +30,13 @@ const App = {
     earLength: function() {
       return this.earLengthModifier + 39
     },
-    earPosition: function() {
+    earWidth: function() {
+      return this.earWidthModifier + 14
+    },
+    earXPosition: function() {
+      return 150 + (24 - this.earWidth)
+    },
+    earYPosition: function() {
       return 148 - (52 - this.earLength)
     },
     noseLength: function() {

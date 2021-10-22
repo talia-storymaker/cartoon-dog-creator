@@ -1,14 +1,36 @@
+/* Resets */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basics */
+
 body {
-  font-family: sans-serif;
+  font-family: 'Comic Neue', sans-serif;
+}
+
+.app {
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: .85em;
 }
 
 .container {
   display: flex;
+  justify-content: center;
 }
 
 .doghead {
   margin-right: 10px;
 }
+
+/* Form */
 
 label {
   display: inline-block;
