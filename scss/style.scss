@@ -30,17 +30,27 @@ h1 {
   margin-right: 10px;
 }
 
-/* Form */
+/* Controls */
 
-label {
-  display: inline-block;
+.controls-div {
+  margin-bottom: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls-label {
   width: 100px;
 }
 
-.color-button, input {
+.color-button, .controls-input {
   width: 50px;
   height: 25px;
   border-radius: 5px;
   border: 1px #000 solid;
   padding: 5px;
+}
+
+.color-picker {
+  margin-bottom: 10px;
 }

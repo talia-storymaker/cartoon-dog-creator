@@ -155,6 +155,21 @@ const App = Vue.createApp({
     earYPosition: function() {
       return 148 - (52 - this.earLength)
     }
+  },
+  methods: {
+    anyClick: function(e) {
+      if (!(e.target.matches('.color-picker') || e.target.closest('.color-picker') || e.target.matches('.color-button') || e.target.closest('.color-picker'))) {
+        console.log('out of color picker click');
+        if (this.showHeadColorPicker || this.showMuzzleColorPicker || this.showEarColorPicker || this.showNoseColorPicker || this.showEyewhiteColorPicker || this.showPupilColorPicker) {
+          this.showHeadColorPicker = false;
+          this.showMuzzleColorPicker = false;
+          this.showEarColorPicker = false;
+          this.showNoseColorPicker = false;
+          this.showEyewhiteColorPicker = false;
+          this.showPupilColorPicker = false;
+        }
+      }
+    }
   }
 })
 
