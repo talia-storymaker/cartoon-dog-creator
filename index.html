@@ -84,42 +84,42 @@
                   <div class="controls-div">
                      <label class="controls-label" for="head-color-chooser">Head: </label>
                      <input class="controls-input" type="color" id="head-color-chooser" v-model="headStyle.fill" v-if="useBrowserColorPicker" />
-                     <button id="head-color-chooser" class="color-button" @click="showHeadColorPicker = !showHeadColorPicker" :style="headButtonStyle" v-else></button>
+                     <button id="head-color-chooser" class="color-button" @click="toggleColorPicker('head')" :style="headButtonStyle" v-else></button>
                   </div>
                   <Chrome class="color-picker" v-model="headColorInfo" v-if="showHeadColorPicker"></Chrome>
 
                   <div class="controls-div">
                      <label class="controls-label" for="muzzle-color-chooser">Muzzle: </label>
                      <input class="controls-input" type="color" id="muzzle-color-chooser" v-model="muzzleStyle.fill" v-if="useBrowserColorPicker" />
-                     <button id="muzzle-color-chooser" class="color-button" @click="showMuzzleColorPicker = !showMuzzleColorPicker" :style="muzzleButtonStyle" v-else></button>
+                     <button id="muzzle-color-chooser" class="color-button" @click="toggleColorPicker('muzzle')" :style="muzzleButtonStyle" v-else></button>
                   </div>
                   <Chrome class="color-picker" v-model="muzzleColorInfo" v-if="showMuzzleColorPicker"></Chrome>
 
                   <div class="controls-div">
                      <label class="controls-label" for="ear-color-chooser">Ear: </label>
                      <input class="controls-input" type="color" id="ear-color-chooser" v-model="earStyle.fill" v-if="useBrowserColorPicker" />
-                     <button id="ear-color-chooser" class="color-button" @click="showEarColorPicker = !showEarColorPicker" :style="earButtonStyle" v-else></button>
+                     <button id="ear-color-chooser" class="color-button" @click="toggleColorPicker('ear')" :style="earButtonStyle" v-else></button>
                   </div>
                   <Chrome class="color-picker" v-model="earColorInfo" v-if="showEarColorPicker"></Chrome>
 
                   <div class="controls-div">
                      <label class="controls-label" for="nose-color-chooser">Nose: </label>
                      <input class="controls-input" type="color" id="nose-color-chooser" v-model="noseStyle.fill" v-if="useBrowserColorPicker" />
-                     <button id="nose-color-chooser" class="color-button" @click="showNoseColorPicker = !showNoseColorPicker" :style="noseButtonStyle" v-else></button>
+                     <button id="nose-color-chooser" class="color-button" @click="toggleColorPicker('nose')" :style="noseButtonStyle" v-else></button>
                   </div>
                   <Chrome class="color-picker" v-model="noseColorInfo" v-if="showNoseColorPicker"></Chrome>
 
                   <div class="controls-div">
                      <label class="controls-label" for="eyewhite-color-chooser">Eyewhite: </label>
                      <input class="controls-input" type="color" id="eyewhite-color-chooser" v-model="eyewhiteStyle.fill" v-if="useBrowserColorPicker" />
-                     <button id="eyewhite-color-chooser" class="color-button" @click="showEyewhiteColorPicker = !showEyewhiteColorPicker" :style="eyewhiteButtonStyle" v-else></button>
+                     <button id="eyewhite-color-chooser" class="color-button" @click="toggleColorPicker('eyewhite')" :style="eyewhiteButtonStyle" v-else></button>
                   </div>
                   <Chrome class="color-picker" v-model="eyewhiteColorInfo" v-if="showEyewhiteColorPicker"></Chrome>
 
                   <div class="controls-div">
                      <label class="controls-label" for="pupil-color-chooser">Pupil: </label>
                      <input class="controls-input" type="color" id="pupil-color-chooser" v-model="pupilStyle.fill" v-if="useBrowserColorPicker" />
-                     <button id="pupil-color-chooser" class="color-button" @click="showPupilColorPicker = !showPupilColorPicker" :style="pupilButtonStyle" v-else></button>
+                     <button id="pupil-color-chooser" class="color-button" @click="toggleColorPicker('pupil')" :style="pupilButtonStyle" v-else></button>
                   </div>
                   <Chrome class="color-picker" v-model="pupilColorInfo" v-if="showPupilColorPicker"></Chrome>
 

@@ -169,6 +169,58 @@ const App = Vue.createApp({
           this.showPupilColorPicker = false;
         }
       }
+    },
+    toggleColorPicker: function(bodyPart) {
+      switch(bodyPart) {
+        case "head": 
+          this.showHeadColorPicker = !this.showHeadColorPicker;
+          this.showMuzzleColorPicker = false;
+          this.showEarColorPicker = false;
+          this.showNoseColorPicker = false;
+          this.showEyewhiteColorPicker = false;
+          this.showPupilColorPicker = false;
+          break;
+        case "muzzle": 
+          this.showMuzzleColorPicker = !this.showMuzzleColorPicker;
+          this.showHeadColorPicker = false;
+          this.showEarColorPicker = false;
+          this.showNoseColorPicker = false;
+          this.showEyewhiteColorPicker = false;
+          this.showPupilColorPicker = false;
+          break;
+        case "ear": 
+          this.showEarColorPicker = !this.showEarColorPicker;
+          this.showHeadColorPicker = false;
+          this.showMuzzleColorPicker = false;
+          this.showNoseColorPicker = false;
+          this.showEyewhiteColorPicker = false;
+          this.showPupilColorPicker = false;
+          break;
+        case "nose": 
+          this.showNoseColorPicker = !this.showNoseColorPicker;
+          this.showHeadColorPicker = false;
+          this.showMuzzleColorPicker = false;
+          this.showEarColorPicker = false;
+          this.showEyewhiteColorPicker = false;
+          this.showPupilColorPicker = false;
+          break;
+        case "eyewhite": 
+          this.showEyewhiteColorPicker = !this.showEyewhiteColorPicker;
+          this.showHeadColorPicker = false;
+          this.showMuzzleColorPicker = false;
+          this.showEarColorPicker = false;
+          this.showNoseColorPicker = false;
+          this.showPupilColorPicker = false;
+          break;
+        case "pupil": 
+          this.showPupilColorPicker = !this.showPupilColorPicker;
+          this.showHeadColorPicker = false;
+          this.showMuzzleColorPicker = false;
+          this.showEarColorPicker = false;
+          this.showNoseColorPicker = false;
+          this.showEyewhiteColorPicker = false;
+          break;
+      }
     }
   }
 })
