@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
    <head>
       <title>Cartoon Dog Creator</title>
       <meta charset="utf-8">
@@ -8,6 +9,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet"> 
       <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@ckpack/vue-color@latest/dist/index.min.js"></script>
    </head>
    <body>
       <div id="app" class="app">
@@ -25,17 +27,6 @@
                version="1.1"
                id="doghead" class="doghead">
                <defs />
-               <metadata>
-                  <rdf:RDF>
-                     <cc:Work
-                        rdf:about="">
-                     <dc:format>image/svg+xml</dc:format>
-                     <dc:type
-                        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                     <dc:title></dc:title>
-                     </cc:Work>
-                  </rdf:RDF>
-               </metadata>
                <g
                   transform="translate(-31.372025,-87.690472)">
                   <!-- HEAD -->
@@ -90,31 +81,49 @@
             </svg>
             <div class="controls">
                <label for="head-color-chooser">Head: </label>
-               <input type="color" id="head-color-chooser" value="#c87137" v-model="headStyle.fill">
+               <input type="color" id="head-color-chooser" v-model="headStyle.fill" v-if="useBrowserColorPicker" />
+               <button id="head-color-chooser" class="color-button" @click="showHeadColorPicker = !showHeadColorPicker" :style="headButtonStyle" v-else></button>
+               <Chrome v-model="headColorInfo" v-if="showHeadColorPicker"></Chrome>
                <br/>
+
                <label for="muzzle-color-chooser">Muzzle: </label>
-               <input type="color" id="muzzle-color-chooser" value="#c87137" v-model="muzzleStyle.fill">
-               <br />
+               <input type="color" id="muzzle-color-chooser" v-model="muzzleStyle.fill" v-if="useBrowserColorPicker" />
+               <button id="muzzle-color-chooser" class="color-button" @click="showMuzzleColorPicker = !showMuzzleColorPicker" :style="muzzleButtonStyle" v-else></button>
+               <Chrome v-model="muzzleColorInfo" v-if="showMuzzleColorPicker"></Chrome>
+               <br/>
+
                <label for="ear-color-chooser">Ear: </label>
-               <input type="color" id="ear-color-chooser" value="#000" v-model="earStyle.fill">
-               <br />
+               <input type="color" id="ear-color-chooser" v-model="earStyle.fill" v-if="useBrowserColorPicker" />
+               <button id="ear-color-chooser" class="color-button" @click="showEarColorPicker = !showEarColorPicker" :style="earButtonStyle" v-else></button>
+               <Chrome v-model="earColorInfo" v-if="showEarColorPicker"></Chrome>
+               <br/>
+
                <label for="nose-color-chooser">Nose: </label>
-               <input type="color" id="nose-color-chooser" value="#000000" v-model="noseStyle.fill">
-               <br />
+               <input type="color" id="nose-color-chooser" v-model="noseStyle.fill" v-if="useBrowserColorPicker" />
+               <button id="nose-color-chooser" class="color-button" @click="showNoseColorPicker = !showNoseColorPicker" :style="noseButtonStyle" v-else></button>
+               <Chrome v-model="noseColorInfo" v-if="showNoseColorPicker"></Chrome>
+               <br/>
+
                <label for="eyewhite-color-chooser">Eyewhite: </label>
-               <input type="color" id="eyewhite-color-chooser" value="#ffffff" v-model="eyewhiteStyle.fill">
-               <br />
+               <input type="color" id="eyewhite-color-chooser" v-model="eyewhiteStyle.fill" v-if="useBrowserColorPicker" />
+               <button id="eyewhite-color-chooser" class="color-button" @click="showEyewhiteColorPicker = !showEyewhiteColorPicker" :style="eyewhiteButtonStyle" v-else></button>
+               <Chrome v-model="eyewhiteColorInfo" v-if="showEyewhiteColorPicker"></Chrome>
+               <br/>
+
                <label for="pupil-color-chooser">Pupil: </label>
-               <input type="color" id="pupil-color-chooser" value="#000000" v-model="pupilStyle.fill">
-               <br />
+               <input type="color" id="pupil-color-chooser" v-model="pupilStyle.fill" v-if="useBrowserColorPicker" />
+               <button id="pupil-color-chooser" class="color-button" @click="showPupilColorPicker = !showPupilColorPicker" :style="pupilButtonStyle" v-else></button>
+               <Chrome v-model="pupilColorInfo" v-if="showPupilColorPicker"></Chrome>
+               <br/>
+               
                <label for="ear-length-chooser">Ear Length: </label>
-               <input type="number" id="ear-length-chooser" value="1" step="1" min="1" max="35" v-model="earLengthModifier">
+               <input type="number" id="ear-length-chooser" step="1" min="1" max="35" v-model="earLengthModifier" />
                <br />
                <label for="ear-width-chooser">Ear Width: </label>
-               <input type="number" id="ear-width-chooser" value="1" step="1" min="1" max="13" v-model="earWidthModifier">
+               <input type="number" id="ear-width-chooser" step="1" min="1" max="13" v-model="earWidthModifier" />
                <br />
                <label for="nose-size-chooser">Nose Size: </label>
-               <input type="number" id="nose-length-chooser" value="1" step="1" min="1" max="8" v-model="noseSizeModifier">
+               <input type="number" id="nose-length-chooser" step="1" min="1" max="8" v-model="noseSizeModifier" />
             </div>
          </div>
       </div>
