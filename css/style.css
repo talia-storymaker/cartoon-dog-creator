@@ -1,10 +1,13 @@
-/* SCSS Variables */
 /* CSS Custom Properties */
 :root {
   --background-color: #eee7f0;
-  --text-color: #20042b;
+  --background-color-secondary: #fff;
+  --background-gradient: radial-gradient(var(--background-color-secondary), var(--background-color));
+  --text-color: #3f0b5a;
+  --text-color-light: #E0D2E5;
 }
 
+/* SCSS Variables */
 /* Resets */
 * {
   margin: 0;
@@ -15,18 +18,17 @@
 /* Basics */
 body {
   font-family: "Comic Neue", sans-serif;
-  background: var(--background-color);
+  background: var(--background-gradient);
   color: var(--text-color);
-}
-
-.outer-container {
-  padding: 10px;
+  min-height: 100vh;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 0.85em;
   font-size: 3em;
+  background: var(--text-color);
+  color: var(--background-color);
+  padding-top: 10px;
 }
 
 .container {
@@ -34,6 +36,15 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.container::before {
+  content: "";
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(to bottom, var(--text-color), transparent 200%);
+  display: block;
+  margin-bottom: 20px;
 }
 
 .svg-container {
@@ -58,15 +69,27 @@ h1 {
 }
 
 /* Controls */
-.controls-div {
-  margin-bottom: 0.5em;
+.controls {
+  border: 2px var(--text-color-light) solid;
+  padding: 10px;
+  background: var(--background-color-secondary);
+}
+
+.individual-control {
+  padding: 7px;
+  padding-left: 15px;
+  border-bottom: 1px var(--text-color-light) solid;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.individual-control:last-of-type {
+  border-bottom-width: 0;
+}
+
 .controls-label {
-  width: 115px;
+  width: 135px;
   font-weight: bold;
   font-size: 1.25em;
 }
