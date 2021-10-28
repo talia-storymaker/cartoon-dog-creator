@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="css/style.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet"> 
+      <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">  
       <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@ckpack/vue-color@latest/dist/index.min.js"></script>
    </head>
@@ -16,70 +16,70 @@
          <div class="outer-container" @click="anyClick">
             <h1>🐶 Cartoon Dog Creator 🎨</h1>
             <div class="container">
-               <svg
-                  xmlns:dc="http://purl.org/dc/elements/1.1/"
-                  xmlns:cc="http://creativecommons.org/ns#"
-                  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                  xmlns:svg="http://www.w3.org/2000/svg"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="429"
-                  height="453"
-                  viewBox="0 0 143 160"
-                  version="1.1"
-                  id="doghead" class="doghead">
-                  <defs />
-                  <g
-                     transform="translate(-31.372025,-87.690472)">
-                     <!-- HEAD -->
-                     <ellipse
-                        :style="headStyle"
-                        id="head" class="head"
-                        cx="126"
-                        cy="132"
-                        rx="42"
-                        ry="44" />
-                     <!-- MUZZLE -->
-                     <ellipse
-                        :style="muzzleStyle"
-                        id="muzzle" class="muzzle"
-                        cx="78"
-                        cy="144"
-                        rx="38"
-                        ry="20" />
-                     <!-- EAR -->
-                     <ellipse
-                        :style="earStyle"
-                        id="ear" class="ear"
-                        :cx="earXPosition"
-                        :cy="earYPosition"
-                        :rx="earWidth"
-                        :ry="earLength" />
-                     <!-- NOSE -->
-                     <ellipse
-                        :style="noseStyle"
-                        id="nose" class="nose"
-                        cx="46"
-                        cy="137"
-                        :rx="noseLength"
-                        :ry="noseHeight" />
-                     <!-- EYEWHITE -->
-                     <ellipse
-                        :style="eyewhiteStyle"
-                        id="eyewhite" class="eyewhite"
-                        cx="108"
-                        cy="122"
-                        rx="12"
-                        ry="19" />
-                     <!-- PUPIL -->
-                     <ellipse
-                        :style="pupilStyle"
-                        id="pupil" class="pupil"
-                        cx="113"
-                        cy="129"
-                        rx="6"
-                        ry="8" />
-                  </g>
-               </svg>
+               <div class="svg-container" :style="svgContainerStyle">
+                  <svg
+                     xmlns:dc="http://purl.org/dc/elements/1.1/"
+                     xmlns:cc="http://creativecommons.org/ns#"
+                     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                     xmlns:svg="http://www.w3.org/2000/svg"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 147 160"
+                     version="1.1"
+                     id="doghead" class="doghead">
+                     <defs />
+                     <g
+                        transform="translate(-27.431138,-87.690472)">
+                        <!-- HEAD -->
+                        <ellipse
+                           :style="headStyle"
+                           id="head" class="head"
+                           cx="126"
+                           cy="132"
+                           rx="42"
+                           ry="44" />
+                        <!-- MUZZLE -->
+                        <ellipse
+                           :style="muzzleStyle"
+                           id="muzzle" class="muzzle"
+                           cx="78"
+                           cy="144"
+                           rx="38"
+                           ry="20" />
+                        <!-- EAR -->
+                        <ellipse
+                           :style="earStyle"
+                           id="ear" class="ear" ref="ear"
+                           :cx="earXPosition"
+                           :cy="earYPosition"
+                           :rx="earWidth"
+                           :ry="earLength" />
+                        <!-- NOSE -->
+                        <ellipse
+                           :style="noseStyle"
+                           id="nose" class="nose"
+                           cx="46"
+                           cy="137"
+                           :rx="noseLength"
+                           :ry="noseHeight" />
+                        <!-- EYEWHITE -->
+                        <ellipse
+                           :style="eyewhiteStyle"
+                           id="eyewhite" class="eyewhite"
+                           cx="108"
+                           cy="122"
+                           rx="12"
+                           ry="19" />
+                        <!-- PUPIL -->
+                        <ellipse
+                           :style="pupilStyle"
+                           id="pupil" class="pupil"
+                           cx="113"
+                           cy="129"
+                           rx="6"
+                           ry="8" />
+                     </g>
+                  </svg>
+               </div>
                <div class="controls">
                   <div class="controls-div">
                      <label class="controls-label" for="head-color-chooser">Head: </label>
@@ -125,7 +125,7 @@
 
                   <div class="controls-div">
                      <label class="controls-label" for="ear-length-chooser">Ear Length: </label>
-                     <input class="controls-input" type="number" id="ear-length-chooser" step="1" min="1" max="35" v-model="earLengthModifier" />
+                     <input class="controls-input" type="number" id="ear-length-chooser" step="1" min="1" max="35" v-model="earLengthModifier" @input="setSvgContainerHeight" />
                   </div>
                   
                   <div class="controls-div">

@@ -3,6 +3,7 @@ const root = document.documentElement;
 const App = Vue.createApp({
   data() {
     return {
+      svgContainerStyle: {},
       /* Will be used for future functionality */
       useBrowserColorPicker: false,
       /* Color pickers shown? */
@@ -22,7 +23,7 @@ const App = Vue.createApp({
       /* Size modifiers */
       earLengthModifier: 13,
       earWidthModifier: 10,
-      noseSizeModifier: 3,
+      noseSizeModifier: 3
     }
   },
   computed: {
@@ -30,136 +31,135 @@ const App = Vue.createApp({
     headStyle: function() {
       let headStyleObject = new Object;
       if (typeof this.headColorInfo === "object") {
-        headStyleObject.fill = this.headColorInfo.hex8
+        headStyleObject.fill = this.headColorInfo.hex8;
       } else {
-        headStyleObject.fill = this.headColorInfo
+        headStyleObject.fill = this.headColorInfo;
       }
       return headStyleObject;
     },
     headButtonStyle: function() {
       let headButtonStyleObject = new Object;
       if (typeof this.headColorInfo === "object") {
-        headButtonStyleObject.background = this.headColorInfo.hex8
+        headButtonStyleObject.background = this.headColorInfo.hex8;
       } else {
-        headButtonStyleObject.background = this.headColorInfo
+        headButtonStyleObject.background = this.headColorInfo;
       }
       return headButtonStyleObject;
     },
     muzzleStyle: function() {
       let muzzleStyleObject = new Object;
       if (typeof this.muzzleColorInfo === "object") {
-        muzzleStyleObject.fill = this.muzzleColorInfo.hex8
+        muzzleStyleObject.fill = this.muzzleColorInfo.hex8;
       } else {
-        muzzleStyleObject.fill = this.muzzleColorInfo
+        muzzleStyleObject.fill = this.muzzleColorInfo;
       }
       return muzzleStyleObject;
     },
     muzzleButtonStyle: function() {
       let muzzleButtonStyleObject = new Object;
       if (typeof this.muzzleColorInfo === "object") {
-        muzzleButtonStyleObject.background = this.muzzleColorInfo.hex8
+        muzzleButtonStyleObject.background = this.muzzleColorInfo.hex8;
       } else {
-        muzzleButtonStyleObject.background = this.muzzleColorInfo
+        muzzleButtonStyleObject.background = this.muzzleColorInfo;
       }
       return muzzleButtonStyleObject;
     },
     earStyle: function() {
       let earStyleObject = new Object;
       if (typeof this.earColorInfo === "object") {
-        earStyleObject.fill = this.earColorInfo.hex8
+        earStyleObject.fill = this.earColorInfo.hex8;
       } else {
-        earStyleObject.fill = this.earColorInfo
+        earStyleObject.fill = this.earColorInfo;
       }
       return earStyleObject;
     },
     earButtonStyle: function() {
       let earButtonStyleObject = new Object;
       if (typeof this.earColorInfo === "object") {
-        earButtonStyleObject.background = this.earColorInfo.hex8
+        earButtonStyleObject.background = this.earColorInfo.hex8;
       } else {
-        earButtonStyleObject.background = this.earColorInfo
+        earButtonStyleObject.background = this.earColorInfo;
       }
       return earButtonStyleObject;
     },
     noseStyle: function() {
       let noseStyleObject = new Object;
       if (typeof this.noseColorInfo === "object") {
-        noseStyleObject.fill = this.noseColorInfo.hex8
+        noseStyleObject.fill = this.noseColorInfo.hex8;
       } else {
-        noseStyleObject.fill = this.noseColorInfo
+        noseStyleObject.fill = this.noseColorInfo;
       }
       return noseStyleObject;
     },
     noseButtonStyle: function() {
       let noseButtonStyleObject = new Object;
       if (typeof this.noseColorInfo === "object") {
-        noseButtonStyleObject.background = this.noseColorInfo.hex8
+        noseButtonStyleObject.background = this.noseColorInfo.hex8;
       } else {
-        noseButtonStyleObject.background = this.noseColorInfo
+        noseButtonStyleObject.background = this.noseColorInfo;
       }
       return noseButtonStyleObject;
     },
     eyewhiteStyle: function() {
       let eyewhiteStyleObject = new Object;
       if (typeof this.eyewhiteColorInfo === "object") {
-        eyewhiteStyleObject.fill = this.eyewhiteColorInfo.hex8
+        eyewhiteStyleObject.fill = this.eyewhiteColorInfo.hex8;
       } else {
-        eyewhiteStyleObject.fill = this.eyewhiteColorInfo
+        eyewhiteStyleObject.fill = this.eyewhiteColorInfo;
       }
       return eyewhiteStyleObject;
     },
     eyewhiteButtonStyle: function() {
       let eyewhiteButtonStyleObject = new Object;
       if (typeof this.eyewhiteColorInfo === "object") {
-        eyewhiteButtonStyleObject.background = this.eyewhiteColorInfo.hex8
+        eyewhiteButtonStyleObject.background = this.eyewhiteColorInfo.hex8;
       } else {
-        eyewhiteButtonStyleObject.background = this.eyewhiteColorInfo
+        eyewhiteButtonStyleObject.background = this.eyewhiteColorInfo;
       }
       return eyewhiteButtonStyleObject;
     },
     pupilStyle: function() {
       let pupilStyleObject = new Object;
       if (typeof this.pupilColorInfo === "object") {
-        pupilStyleObject.fill = this.pupilColorInfo.hex8
+        pupilStyleObject.fill = this.pupilColorInfo.hex8;
       } else {
-        pupilStyleObject.fill = this.pupilColorInfo
+        pupilStyleObject.fill = this.pupilColorInfo;
       }
       return pupilStyleObject;
     },
     pupilButtonStyle: function() {
       let pupilButtonStyleObject = new Object;
       if (typeof this.pupilColorInfo === "object") {
-        pupilButtonStyleObject.background = this.pupilColorInfo.hex8
+        pupilButtonStyleObject.background = this.pupilColorInfo.hex8;
       } else {
-        pupilButtonStyleObject.background = this.pupilColorInfo
+        pupilButtonStyleObject.background = this.pupilColorInfo;
       }
       return pupilButtonStyleObject;
     },
     /* Sizes */
     earLength: function() {
-      return this.earLengthModifier + 39
+      return this.earLengthModifier + 39;
     },
     earWidth: function() {
-      return this.earWidthModifier + 14
+      return this.earWidthModifier + 14;
     },
     noseLength: function() {
-      return this.noseSizeModifier + 10
+      return this.noseSizeModifier + 10;
     },
     noseHeight: function() {
-      return this.noseSizeModifier + 8
+      return this.noseSizeModifier + 8;
     },
     /* Positions, so position stays good when items are resized */
     earXPosition: function() {
-      return 150 + (24 - this.earWidth)
+      return 150 + (24 - this.earWidth);
     },
     earYPosition: function() {
-      return 148 - (52 - this.earLength)
+      return 148 - (52 - this.earLength);
     }
   },
   methods: {
     anyClick: function(e) {
       if (!(e.target.matches('.color-picker') || e.target.closest('.color-picker') || e.target.matches('.color-button') || e.target.closest('.color-picker'))) {
-        console.log('out of color picker click');
         if (this.showHeadColorPicker || this.showMuzzleColorPicker || this.showEarColorPicker || this.showNoseColorPicker || this.showEyewhiteColorPicker || this.showPupilColorPicker) {
           this.showHeadColorPicker = false;
           this.showMuzzleColorPicker = false;
@@ -220,8 +220,18 @@ const App = Vue.createApp({
           this.showNoseColorPicker = false;
           this.showEyewhiteColorPicker = false;
           break;
+        default:
+          console.log('The color picker to be toggled must be specified.');
       }
+    },
+    setSvgContainerHeight() {
+      this.svgContainerStyle.height = (this.$refs.ear.getBoundingClientRect().height + 50) + 'px';
+      console.log((this.$refs.ear.getBoundingClientRect().height + 50) + 'px');
     }
+  },
+  mounted() {
+    this.setSvgContainerHeight();
+    window.addEventListener('resize', this.setSvgContainerHeight);
   }
 })
 

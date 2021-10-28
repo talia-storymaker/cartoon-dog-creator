@@ -22,12 +22,24 @@ h1 {
 .container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.doghead {
-  margin-right: 10px;
+.svg-container {
+  overflow: hidden;
 }
 
+@media screen and (min-width: 700px) {
+  .svg-container {
+    width: 50%;
+    margin-right: 2vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .svg-container {
+    width: 35%;
+  }
+}
 /* Controls */
 .controls-div {
   margin-bottom: 0.5em;
@@ -38,6 +50,7 @@ h1 {
 
 .controls-label {
   width: 100px;
+  font-weight: bold;
 }
 
 .color-button, .controls-input {
