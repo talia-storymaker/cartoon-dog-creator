@@ -23,7 +23,11 @@ const App = Vue.createApp({
       /* Size modifiers */
       earLengthModifier: 13,
       earWidthModifier: 10,
-      noseSizeModifier: 3
+      noseSizeModifier: 3,
+      /* Maximize size modifier values */
+      earLengthMax: 35,
+      earWidthMax: 13,
+      noseSize: 8
     }
   },
   computed: {
@@ -96,6 +100,14 @@ const App = Vue.createApp({
         styleObject[property] = colorInfo;
       }
       return styleObject;
+    },
+    updateNumber: function(whatIsChanging) {
+      if (whatIsChanging === 'earLength') {
+        this.setSvgContainerHeight();
+        if (this.earLengthModifier > this.earLengthMax) {
+          this.earLengthModifier = this.earLengthMax;
+        }
+      }
     },
     anyClick: function(e) {
       if (!(e.target.matches('.color-picker') || e.target.closest('.color-picker') || e.target.matches('.color-button') || e.target.closest('.color-picker'))) {

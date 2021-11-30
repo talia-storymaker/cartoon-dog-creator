@@ -41,7 +41,6 @@ h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 .container::before {
@@ -58,6 +57,12 @@ h1 {
   width: 100%;
 }
 
+/* SVG */
+
+.svg-container {
+  margin-right: 20px;
+}
+
 @media screen and (min-width: 700px) {
   .svg-container {
     width: 50%;
@@ -71,8 +76,6 @@ h1 {
   }
 }
 
-/* SVG */
-
 .svg-item {
   transition: fill .25s ease-in-out;
 }
@@ -83,6 +86,7 @@ h1 {
   border: 2px var(--text-color-light) solid;
   padding: 10px;
   background: var(--background-color-secondary);
+  margin-bottom: 20px;
 }
 
 .individual-control {
