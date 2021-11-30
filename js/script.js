@@ -27,7 +27,7 @@ const App = Vue.createApp({
       /* Maximize size modifier values */
       earLengthMax: 35,
       earWidthMax: 13,
-      noseSize: 8
+      noseSizeMax: 8
     }
   },
   computed: {
